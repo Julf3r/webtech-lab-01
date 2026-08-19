@@ -50,9 +50,12 @@
             </section>
             <section id="projects">
                 <h2>Project Collection</h2>
-
-                <label for="project-filter">Filter projects</label>
-                <input type="text" id="project-filter">
+                <section id="filter-section">
+                    <label for="project-filter">Filter projects</label>
+                    <input type="text" id="project-filter" placeholder="Enter a keyword to filter projects">
+                    <button id="filter-button" disabled>Refresh</button>
+                </section>    
+                <ul id="suggestions"></ul>
                 <div id="project-list"></div>
             </section>
             <section id="contact">

@@ -110,3 +110,25 @@ filterButton.addEventListener("click", () => {
     renderProjects(projects);
     filterButton.disabled = true; // Disable the button after clicking
 });
+
+const states = ["light-theme", "dark-theme"];
+
+const nextState = currentState => {
+    const currentIndex = states.indexOf(currentState);
+    return states[(currentIndex + 1) % states.length];
+};
+
+const body = document.querySelector("body");
+const darkModeToggle = document.querySelector("#dark-mode-toggle");
+
+darkModeToggle.addEventListener("click", () => {
+    const newState = nextState(body.dataset.theme);
+
+    body.dataset.theme = newState;
+
+    body.classList.remove(...states);
+    body.classList.add(newState);
+});
+
+body.dataset.theme = "light-theme";
+body.classList.add("light-theme");

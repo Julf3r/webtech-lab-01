@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-body {
+body.light-theme {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
@@ -10,21 +10,21 @@ body {
     color: #1F2933;
 }
 
-h1,
-h2,
-h3 {
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3 {
     color: #14213D;
 }
 
-a {
+body.light-theme a {
     color: #14213D;
 }
 
-a:hover {
+body.light-theme a:hover {
     color: #E87520;
 }
 
-header {
+body.light-theme header {
     display: grid;
     grid-template-columns: 220px 1fr;
     gap: 30px;
@@ -34,12 +34,12 @@ header {
     color: white;
 }
 
-header figure {
+body.light-theme header figure {
     margin: 0;
     text-align: center;
 }
 
-.profile-picture {
+body.light-theme .profile-picture {
     width: 180px;
     height: 180px;
     object-fit: cover;
@@ -48,29 +48,29 @@ header figure {
     border-radius: 50%;
 }
 
-header figcaption {
+body.light-theme header figcaption {
     margin-top: 8px;
     color: #E5E7EB;
 }
 
-header h1 {
+body.light-theme header h1 {
     color: white;
     margin-bottom: 10px;
 }
 
-header h2 {
+body.light-theme header h2 {
     color: #F4A261;
 }
 
-header p {
+body.light-theme header p {
     max-width: 750px;
 }
 
-nav {
+body.light-theme nav {
     grid-column: 2;
 }
 
-nav ul {
+body.light-theme nav ul {
     display: flex;
     gap: 20px;
 
@@ -79,7 +79,7 @@ nav ul {
     list-style: none;
 }
 
-nav a {
+body.light-theme nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
@@ -89,7 +89,7 @@ nav a {
     border-radius: 8px;
 }
 
-nav a:hover {
+body.light-theme nav a:hover {
     background-color: #F28C28;
     color: #14213D;
 }
@@ -282,4 +282,86 @@ footer a:hover {
         flex-direction: column;
         align-items: center;
     }
+}
+
+body.dark-theme {
+    background-color: #0F172A;
+    color: #E5E7EB;
+}
+
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3 {
+    color: #F8FAFC;
+}
+
+body.dark-theme a {
+    color: #F4A261;
+}
+
+body.dark-theme a:hover {
+    color: #F28C28;
+}
+
+body.dark-theme header {
+    background-color: #0B132B;
+}
+
+body.dark-theme header h1 {
+    color: white;
+}
+
+body.dark-theme header h2 {
+    color: #F4A261;
+}
+
+body.dark-theme header figure {
+    margin: 0;
+    text-align: center;
+}
+
+body.dark-theme .profile-picture {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+
+    border: 4px solid #F28C28;
+    border-radius: 50%;
+}
+
+body.dark-theme #skills ul {
+    background-color: #1E293B;
+}
+
+body.dark-theme article {
+    background-color: #1E293B;
+}
+
+body.dark-theme address {
+    background-color: #243247;
+}
+
+body.dark-theme label {
+    color: #F8FAFC;
+}
+
+body.dark-theme input,
+body.dark-theme textarea {
+    background-color: #111827;
+    color: #F8FAFC;
+    border-color: #64748B;
+}
+
+body.dark-theme input::placeholder,
+body.dark-theme textarea::placeholder {
+    color: #94A3B8;
+}
+
+body.dark-theme button:disabled {
+    background-color: #334155;
+    color: #94A3B8;
+}
+
+body.dark-theme footer {
+    background-color: #0B132B;
 }

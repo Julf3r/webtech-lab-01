@@ -13,6 +13,21 @@ const projects = [
         name: "Peer Evaluation Tool",
         language: "Python",
         category: "Automation"
+    },
+    {
+        name: "Personal Portfolio",
+        language: "JavaScript",
+        category: "Web"
+    },
+    {
+        name: "Minigrep",
+        language: "Rust",
+        category: "CLI"
+    },
+    {
+        name: "Text encryption",
+        language: "C",
+        category: "CLI"
     }
 ];
 
@@ -37,6 +52,14 @@ function renderProjects(projectsToRender) {
         article.append(title, language, category);
         projectList.append(article);
     });
+
+    if (projectsToRender.length === 0) {
+        const article = document.createElement("article");
+        const noProjectsItem = document.createElement("p");
+        noProjectsItem.textContent = "No projects found";
+        article.appendChild(noProjectsItem);
+        projectList.appendChild(article);
+    }
 }
 
 renderProjects(projects);
@@ -58,6 +81,13 @@ projectFilter.addEventListener("input", (event) => {
                project.language.toLowerCase().includes(filterValue) ||
                project.category.toLowerCase().includes(filterValue);
     });
+
+    if (matches.length === 0) {
+        const noMatchItem = document.createElement("li");
+        noMatchItem.textContent = "No matches found";
+        suggestionsList.appendChild(noMatchItem);
+        filterButton.disabled = true;
+    }
 
     matches.forEach((match) => {
     const suggestionItem = document.createElement("li");

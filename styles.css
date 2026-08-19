@@ -2,14 +2,13 @@
     box-sizing: border-box;
 }
 
-body.light-theme {
+body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
     background-color: #F7F7F5;
     color: #1F2933;
 }
-
 body.light-theme h1,
 body.light-theme h2,
 body.light-theme h3 {
@@ -24,7 +23,7 @@ body.light-theme a:hover {
     color: #E87520;
 }
 
-body.light-theme header {
+header {
     display: grid;
     grid-template-columns: 220px 1fr;
     gap: 30px;
@@ -66,11 +65,11 @@ body.light-theme header p {
     max-width: 750px;
 }
 
-body.light-theme nav {
+body nav {
     grid-column: 2;
 }
 
-body.light-theme nav ul {
+body nav ul {
     display: flex;
     gap: 20px;
 
@@ -307,14 +306,6 @@ body.dark-theme header {
     background-color: #0B132B;
 }
 
-body.dark-theme header h1 {
-    color: white;
-}
-
-body.dark-theme header h2 {
-    color: #F4A261;
-}
-
 body.dark-theme header figure {
     margin: 0;
     text-align: center;
@@ -327,6 +318,26 @@ body.dark-theme .profile-picture {
 
     border: 4px solid #F28C28;
     border-radius: 50%;
+}
+body.dark-theme header h1 {
+    color: white;
+}
+
+body.dark-theme header h2 {
+    color: #F4A261;
+}
+
+body.dark-theme nav a {
+    color: #F8FAFC;
+    background-color: #1E293B;
+
+    border: 2px solid #F28C28;
+    border-radius: 8px;
+}
+
+body.dark-theme nav a:hover {
+    background-color: #F28C28;
+    color: #0B132B;
 }
 
 body.dark-theme #skills ul {

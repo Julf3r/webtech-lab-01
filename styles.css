@@ -252,11 +252,11 @@ footer {
     background-color: #14213D;
 }
 
-footer a {
+body.light-theme footer a {
     color: white;
 }
 
-footer a:hover {
+body.light-theme footer a:hover {
     color: #F4A261;
 }
 
@@ -383,4 +383,12 @@ body.dark-theme button:disabled {
 
 body.dark-theme footer {
     background-color: #0B132B;
+}
+
+body.dark-theme footer a {
+    color: #F8FAFC;
+}
+
+body.dark-theme footer a:hover {
+    color: #F4A261;
 }

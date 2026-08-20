@@ -69,6 +69,17 @@ body nav {
     grid-column: 2;
 }
 
+nav a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+
+    padding: 8px 14px;
+    border: 2px solid #F28C28;
+    border-radius: 8px;
+}
+
 body nav ul {
     display: flex;
     gap: 20px;
@@ -330,9 +341,6 @@ body.dark-theme header h2 {
 body.dark-theme nav a {
     color: #F8FAFC;
     background-color: #1E293B;
-
-    border: 2px solid #F28C28;
-    border-radius: 8px;
 }
 
 body.dark-theme nav a:hover {

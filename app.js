@@ -132,3 +132,71 @@ darkModeToggle.addEventListener("click", () => {
 
 body.dataset.theme = "light-theme";
 body.classList.add("light-theme");
+
+const API_BASE = "http://localhost:3000/api/v1";
+
+function formatPrice(price) {
+  return new Intl.NumberFormat("es-CL", {
+    style: "currency",
+    currency: "CLP",
+    maximumFractionDigits: 0
+  }).format(Number(price));
+}
+
+async function fetchApi(path) {
+  const response = await fetch(`${API_BASE}${path}`);
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error((data.errors || ["Request failed"]).join(", "));
+  }
+
+  return data;
+}
+
+async function loadServices() {
+  const status = document.querySelector("#services-status");
+  const list = document.querySelector("#services-list");
+
+  status.textContent = "Loading services...";
+  list.replaceChildren();
+
+  try {
+    const services = await fetchApi("/services");
+
+    for (const service of services) {
+      const item = document.createElement("li");
+      item.textContent = `${service.name} — ${formatPrice(service.price)}`;
+      list.appendChild(item);
+    }
+
+    status.textContent = services.length ? "" : "No services available.";
+  } catch (error) {
+    status.textContent = `Could not load services: ${error.message}`;
+  }
+}
+
+async function searchService(event) {
+  event.preventDefault();
+
+  const id = document.querySelector("#service-id").value;
+  const result = document.querySelector("#service-result");
+
+  result.textContent = "Searching...";
+
+  try {
+    const service = await fetchApi(`/services/${id}`);
+
+    result.textContent =
+      `${service.name} — ${formatPrice(service.price)} — ` +
+      `Charged on ${service.charged_repairs_count} repairs`;
+  } catch (error) {
+    result.textContent = error.message;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadServices();
+  document.querySelector("#service-search")
+    .addEventListener("submit", searchService);
+});
